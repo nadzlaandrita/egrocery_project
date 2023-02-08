@@ -31,7 +31,7 @@ Route::get('/account-maintenance', function () {
 
     Route::get('/register', [AuthController::class, 'registerPage']);
     Route::post('/register', [AuthController::class, 'register']);
-    
+
     Route::get('/login', [AuthController::class, 'loginPage']);
     Route::post('/login', [AuthController::class, 'login']);
 
@@ -50,7 +50,7 @@ Route::get('/account-maintenance', function () {
 
     Route::get('/account-maintenance', [UserController::class, 'loadAccountPage']);
     Route::delete('/delete-account/{id}', [UserController::class, 'deleteAccount']);
-    
+
     Route::get('/update-role/{id}', [UserController::class, 'loadUpdateRolePage']);
 
 
