@@ -16,7 +16,7 @@
                 <select class="form-select" aria-label="Default select example">
                     <option selected>Choose the new role</option>
                     @foreach($role_data as $data)
-                    <option value="{{$data->role_name}}">{{$data->role_name}}</option>
+                    <option value="{{$data->id}}">{{$data->role_name}}</option>
                     @endforeach
                 </select>
             </form>

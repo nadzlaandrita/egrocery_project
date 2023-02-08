@@ -118,7 +118,12 @@ class UserController extends Controller
     }
 
     public function updateRole(Request $request, $id){
-        
+        User::find($id);
+
+        $user_data = User::all()->where('user_id', '=', $id);
+
+
+
     }
 
 
