@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Item;
 use App\Models\Order;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
@@ -13,6 +14,8 @@ class OrderController extends Controller
 
     public function addCart(Request $request, $item_id)
     {
+        App::setlocale(session('lang'));
+        
         $item_data = Item::find($request->id);
 
         $order_data = Order::all()->where('user_id', '=', Auth::user()->id)->where('item_id', '=', $item_id)->first();
@@ -32,6 +35,7 @@ class OrderController extends Controller
     }
 
     public function loadCart(){
+        App::setlocale(session('lang'));
 
         $order_data = Order::all()->where('user_id', '=', Auth::user()->id);
 
@@ -51,6 +55,8 @@ class OrderController extends Controller
 
     public function removeCart($item_id)
     {
+        App::setlocale(session('lang'));
+
         //Delete Cart
         $order_data = Order::where('item_id', '=', $item_id);
         $order_data->delete();
@@ -58,10 +64,12 @@ class OrderController extends Controller
     }
 
     public function loadSuccessPage(){
+        App::setlocale(session('lang'));
         return view('user.success');
     }
 
     public function toSuccess(){
+        App::setlocale(session('lang'));
 
         $order_data = Order::where('user_id', '=', Auth::user()->id);
 

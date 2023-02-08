@@ -7,6 +7,7 @@ use App\Models\Gender;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Session;
@@ -15,11 +16,13 @@ class AuthController extends Controller
 {
     public function loginPage()
     {
+        App::setlocale(session('lang'));
         return view('login');
     }  
       
     public function login(Request $request)
     {
+        App::setlocale(session('lang'));
         $email = $request->email;
         $password = $request->password;
 
@@ -52,12 +55,16 @@ class AuthController extends Controller
     }
 
     public function logout(){
+        App::setlocale(session('lang'));
+
         Auth::logout();
         return redirect('/');
     }
 
     public function registerPage()
     {
+        App::setlocale(session('lang'));
+
         $gender_data = Gender::all();
         $role_data = Role::all();
 
@@ -70,6 +77,8 @@ class AuthController extends Controller
       
     public function register(Request $request)
     {  
+        App::setlocale(session('lang'));
+        
         var_dump($request->all());
 
         $first_name = $request->first_name;

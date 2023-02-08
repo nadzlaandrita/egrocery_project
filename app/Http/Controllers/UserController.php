@@ -6,14 +6,27 @@ use App\Models\Gender;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
+    public function language(Request $request){
+        session(['lang' => $request->language]);
+        return redirect()->back();
+    }
+
+    public function indexPage(){
+        App::setlocale(session('lang'));
+        return view('index');
+    }
+
     public function loadProfilePage()
     {
+        App::setlocale(session('lang'));
+        
         $user_data = User::where('id', '=', Auth::user()->id)->get();
         $gender_data = Gender::all();
         // $role_data = Role::where('id', '=', $user_data->role_id)->get();
@@ -36,24 +49,24 @@ class UserController extends Controller
 
     public function toSaved()
     {
+        App::setlocale(session('lang'));
         return view('user.saved');
     }
 
     public function updateProfile(Request $request)
     {
-
+        App::setlocale(session('lang'));
         // dd($request->display_picture_link);
 
-        $user_data = User::where('id', '=', Auth::user()->id)->first();
+        $user_data = User::find(Auth::user()->id);
 
         // dd($user_data);
         $request->validate([
             'first_name' => 'required|min:3|max:25',
             'last_name' => 'required|min:3|max:25',
             'email' => 'required|email|unique:users',
-            'role' => 'required',
             'gender' => 'required',
-            'display_picture_link' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+            'display_picture_link' => 'image|mimes:jpeg,png,jpg|max:2048',
             'old_password' => 'required|min:5',
             'new_password' => 'required|min:5'
         ]);
@@ -62,7 +75,7 @@ class UserController extends Controller
 
             //code for remove old file
             if ($user_data->display_picture_link != ''  && $user_data->display_picture_link != null) {
-                $file_old = "public/" . $user_data->display_picture_link;
+                $file_old = $user_data->display_picture_link;
                 unlink($file_old);
             }
 
@@ -71,7 +84,7 @@ class UserController extends Controller
 
             $path = $request->display_picture_link->move('images', $imageName);
 
-            $pathBaru = asset("images/" . $imageName);
+            // $pathBaru = asset("images/" . $imageName);
         }
 
         if (!Hash::check($request->old_password, Auth::user()->password)) {
@@ -84,30 +97,20 @@ class UserController extends Controller
             return redirect()->back()->with("error", "New Password cannot be same as your current password.");
         }
 
-
-        dd($pathBaru);
-
         $user_data->first_name = $request->first_name;
         $user_data->last_name = $request->last_name;
         $user_data->email = $request->email;
-        $user_data->display_picture_link = $pathBaru;
+        $user_data->display_picture_link = $path;
         $user_data->password = bcrypt($request->new_password);
         $user_data->save();
-
-
-        // $user_data->update([
-        //     'first_name' => $request->first_name,
-        //     'last_name' => $request->last_name,
-        //     'email' => $request->email,
-        //     'display_picture_link' => $pathBaru,
-        //     'password' => bcrypt($request->new_password)
-        // ]);
 
         return redirect('/saved');
     }
 
     public function loadAccountPage()
     {
+        App::setlocale(session('lang'));
+
         $user_data = User::all();
 
         return view('admin.acc_maintenance', [
@@ -117,6 +120,8 @@ class UserController extends Controller
 
     public function deleteAccount($id)
     {
+        App::setlocale(session('lang'));
+
         //Delete Account
         $user_data = User::where('id', '=', $id);
         $user_data->delete();
@@ -125,6 +130,8 @@ class UserController extends Controller
 
     public function loadUpdateRolePage($id)
     {
+        App::setlocale(session('lang'));
+
         $role_data = Role::all();
         $user_data = User::where('id', '=', $id)->first();
         //    dd($user_data);
@@ -135,17 +142,14 @@ class UserController extends Controller
         ]);
     }
 
-<<<<<<< HEAD
     public function updateRole(Request $request, $id){
-        User::find($id);
+        App::setlocale(session('lang'));
+        
+        $user_data = User::find($id);
+        $user_data->role_id = $request->role_id;
+        $user_data->save();
 
-        $user_data = User::all()->where('user_id', '=', $id);
+        return redirect('/account-maintenance');
 
-
-
-=======
-    public function updateRole(Request $request, $id)
-    {
->>>>>>> 2edf6df38e1ea981b39957bf738d814795d5db5e
     }
 }

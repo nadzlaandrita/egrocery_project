@@ -19,7 +19,7 @@
                     {{ csrf_field() }}
 
                     <div class="col-md-6">
-                        <label for="name" class="form-label">First Name</label>
+                        <label for="name" class="form-label">{{ trans('dicts.First Name')}}</label>
                         <input type="text" name="first_name" class="form-control" id="" value="{{$data->first_name}}">
 
                         @error('first_name')
@@ -30,7 +30,7 @@
                     </div>
 
                     <div class="col-md-6">
-                        <label for="name" class="form-label">Last Name</label>
+                        <label for="name" class="form-label">{{ trans('dicts.Last Name')}}</label>
                         <input type="text" name="last_name" class="form-control" id="" value="{{$data->last_name}}">
 
                         @error('last_name')
@@ -41,7 +41,7 @@
                     </div>
 
                     <div class="col-md-6">
-                        <label for="email" class="form-label">Email</label>
+                        <label for="email" class="form-label">{{ trans('dicts.Email')}}</label>
                         <input type="email" name="email" class="form-control" id="" value="{{$data->email}}" >
 
                         @error('email')
@@ -53,12 +53,12 @@
 
 
                     <div class="col-md-6">
-                        <label for="" class="form-label">Role</label>
+                        <label for="" class="form-label">{{ trans('dicts.Role')}}</label>
                         <label type="text" name="role" class="form-control" id="inputAddress" placeholder="">{{$data->role->role_name}} </label>
                     </div>
 
                     <div class="col-md-6">
-                        <label for="" class="form-label">Gender</label>
+                        <label for="" class="form-label">{{ trans('dicts.Gender')}}</label>
                         @foreach($gender_data as $gender)
                             <input class="form-check-input" type="radio" name="gender" id="gender" value="{{$gender->gender_desc}}" checked>
                             <label class="form-check-label" for="">
@@ -74,7 +74,7 @@
                     </div>
 
                     <div class="col-md-6">
-                        <label for="">Display Picture</label>
+                        <label for="">{{ trans('dicts.Display Picture')}}</label>
                         <input type="file" class="form-control" name="display_picture_link" id="display_picture"/>
 
                         @error('display_picture_link')
@@ -85,7 +85,7 @@
                     </div>
 
                     <div class="col-md-6">
-                        <label for="password" class="form-label">Old Password</label>
+                        <label for="password" class="form-label">{{ trans('dicts.Old Password')}}</label>
                         <input type="password" name="old_password" class="form-control" id="" placeholder="">
 
                         @error('old_password')
@@ -96,7 +96,7 @@
                     </div>
 
                     <div class="col-md-6">
-                        <label for="password" class="form-label">New Password</label>
+                        <label for="password" class="form-label">{{ trans('dicts.New Password')}}</label>
                         <input type="password" name="new_password" class="form-control" id="" placeholder="">
 
                         @error('new_password')
@@ -107,7 +107,7 @@
                     </div>
 
                     <div class="d-grid gap-2 col-md-6 mx-auto">
-                        <button type="submit" class="btn btn-warning">Save</button>
+                        <button type="submit" class="btn btn-warning">{{ trans('dicts.Save')}}</button>
                     </div>
                 </form>
             </div>

@@ -11,7 +11,7 @@
             <img src="https://cdn.icon-icons.com/icons2/2337/PNG/512/asian_food_vegetables_salad_bowl_icon_142409.png" class="card-img-top" alt="...">
             <h5 class="card-title">{{$data->item_name}}</h5>
             <h6 class="card-text">Rp.{{$data->price}}</h6>
-            <a href="/detail-item/{{$data->id}}" class="btn btn-warning">More Detail</a>
+            <a href="/detail-item/{{$data->id}}" class="btn btn-warning">{{ trans('dicts.More Detail')}}</a>
         </div>
     </div>
     @endforeach

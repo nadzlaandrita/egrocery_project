@@ -7,8 +7,8 @@
 <div class="card border-card mt-5 d-flex mx-auto" style="max-width: 100rem; justify-content:center; align-items:center;">
     <div class="card-body mt-5">
         <div class="text-center" style="margin: auto;">
-            <h1 class="">Saved !</h1>
-            <a href="/home" class="btn btn-warning">Back to Home</a>
+            <h1 class="">{{ trans('dicts.Saved !')}}</h1>
+            <a href="/home" class="btn btn-warning">{{ trans('dicts.Back to Home')}}</a>
         </div>
     </div>
 </div>

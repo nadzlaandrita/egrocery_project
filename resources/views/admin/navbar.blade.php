@@ -12,9 +12,9 @@
     <header>
         <nav class="navbar" style="background-color: #5cb85c">
             <div class="container-fluid">
-                <a href="/home" class="navbar-brand h1">Amazing E-Grocery</a>
+                <a href="/home" class="navbar-brand h1">{{ trans('dicts.Amazing E-Grocery')}}</a>
             <form class="d-flex">
-                <a href="/logout" class="btn btn-outline-warning" type="submit">Logout</a>
+                <a href="/logout" class="btn btn-outline-warning" type="submit">{{ trans('dicts.Logout')}}</a>
             </form>
             </div>
         </nav>
@@ -24,16 +24,16 @@
         <div class="container-fluid d-flex" style="justify-content: center; align-items:center">
             <ul class="navbar-nav">
                 <li class="nav-item me-3">
-                    <a class="nav-link active" aria-current="page" href="/home">Home</a>
+                    <a class="nav-link active" aria-current="page" href="/home">{{ trans('dicts.Home')}}</a>
                 </li>
                 <li class="nav-item me-3">
-                    <a class="nav-link disable" href="#">Cart</a>
+                    <a class="nav-link disable" href="#">{{ trans('dicts.Cart')}}</a>
                 </li>
                 <li class="nav-item me-3">
-                    <a class="nav-link active" href="/profile">Profile</a>
+                    <a class="nav-link active" href="/profile">{{ trans('dicts.Profile')}}</a>
                 </li>
                 <li class="nav-item me-3">
-                    <a class="nav-link active" href="/account-maintenance">Account Maintenance</a>
+                    <a class="nav-link active" href="/account-maintenance">{{ trans('dicts.Account Maintenance')}}</a>
                 </li>
             </ul>
         </div>

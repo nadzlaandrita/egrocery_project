@@ -7,7 +7,7 @@
 <div class="mt-5 me-2" style="justify-content:center; align-items:center; display:flex;">
     <div class="card w-50" style="background-color:#f0ad4e">
         <div class="card-body">
-            <h1 class="text-center">Register</h1>
+            <h1 class="text-center">{{ trans('dicts.Register') }}</h1>
 
             @if ($message = Session::get('success'))
                 <div class="alert alert-success alert-block">
@@ -21,7 +21,7 @@
                 {{ csrf_field() }}
 
                 <div class="form-group">
-                    <label for="">First Name</label>
+                    <label for="">{{ trans('dicts.First Name')}}</label>
                     <input type="text" name="first_name" id="first_name" class="form-control" placeholder="(5-20 letters)" required autofocus>
 
                     @error('first_name')
@@ -33,7 +33,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="">Last Name</label>
+                    <label for="">{{ trans('dicts.Last Name')}}</label>
                     <input type="text" name="last_name" id="last_name" class="form-control" placeholder="(5-20 letters)" required autofocus>
 
                     @error('last_name')
@@ -45,7 +45,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="exampleInputEmail1">Email</label>
+                    <label for="exampleInputEmail1">{{ trans('dicts.Email')}}</label>
                     <input type="email" name="email" id="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email" required autofocus>
 
                     @error('email')
@@ -56,7 +56,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="disabledSelect" class="form-label">Role</label>
+                    <label for="disabledSelect" class="form-label">{{ trans('dicts.Role')}}</label>
                     <select id="disabledSelect" class="form-select" name="role" id="role">
                         @foreach ($role_data as $data)
 
@@ -72,7 +72,7 @@
                 </div>
 
                 <div class="form-group mt-2 mb-2">
-                    <label for="selectGender">Gender</label>
+                    <label for="selectGender">{{ trans('dicts.Gender')}}</label>
 
                     @foreach ($gender_data as $data)
 
@@ -92,12 +92,12 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="">Display Picture</label>
+                    <label for="">{{ trans('dicts.Display Picture')}}</label>
                     <input type="file" class="form-control" name="display_picture" id="display_picture"/>
                 </div>
 
                 <div class="form-group">
-                    <label for="">Password</label>
+                    <label for="">{{ trans('dicts.Password')}}</label>
                     <input type="password" name="password" class="form-control" id="password" placeholder="Password" required>
 
                     @error('password')
@@ -108,7 +108,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="exampleInputPassword1">Confirm Password</label>
+                    <label for="exampleInputPassword1">{{ trans('dicts.Confirm Password')}}</label>
                     <input type="password" name="confirm_password" class="form-control" id="password" placeholder="Password" required>
 
                     @error('confirm_password')
@@ -120,8 +120,8 @@
 
                 <div class="text-center mt-2">
                     <input type="submit" value="Register" class="btn btn-success">
-                    <p>Already Register?
-                        <a href="/login">Sign In Here</a>
+                    <p>{{ trans('dicts.Already Register?')}}
+                        <a href="/login">{{ trans('dicts.Sign In Here')}}</a>
                     </p>
                 </div>
 

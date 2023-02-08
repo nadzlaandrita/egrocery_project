@@ -23,7 +23,7 @@
             @endforeach
 
             <div class="d-grid gap-2 d-md-flex justify-content-md-end mx-2 mb-2">
-                <button class="btn btn-success" type="submit">Add to Cart</button>
+                <button class="btn btn-success disable" type="submit">{{ trans('dicts.Add to Cart')}}</button>
             </div>
         </div>
     </div>

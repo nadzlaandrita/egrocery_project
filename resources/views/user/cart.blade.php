@@ -5,16 +5,16 @@
 @section('content')
 
 <div class="my-chart d-flex justify-content-center">
-    <h1>My Cart</h1>
+    <h1>{{ trans('dicts.My Cart')}}</h1>
 </div>
 
 <div class="view-price d-flex justify-content-end m-3">
-    <h5>Total Price: {{$total_price}}</h5>
+    <h5>{{ trans('dicts.Total Price:')}} {{$total_price}}</h5>
 
     <form action="/checkout" method="POST">
         @method('DELETE')
         @csrf
-        <button type="submit" class="btn btn-warning">Check Out</button>
+        <button type="submit" class="btn btn-warning">{{ trans('dicts.Check Out')}}</button>
     </form>
 
 </div>
@@ -34,7 +34,7 @@
                         @csrf
 
                         <button type="submit" class="btn btn-danger d-flex ">
-                            Remove from Cart
+                            {{ trans('dicts.Remove from Cart')}}
                         </button>
                     </form>
 

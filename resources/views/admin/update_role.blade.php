@@ -8,27 +8,28 @@
 <div class="mt-5 d-flex" style="justify-content:center; align-items:center">
     <div class="card mb-3" style="width: 20rem">
 
-        @foreach($user_data)
-            <h2>{{$user_data->first_name}} {{$user_data->last_name}}</h2>
-            
-            <label for="">Role</label>
-            <form action="{{url('/update-role/{{$user_data->id}}')}}">
-                <select class="form-select" aria-label="Default select example">
-                    <option selected>Choose the new role</option>
-                    @foreach($role_data as $data)
+        <h2>{{$user_data->first_name}} {{$user_data->last_name}}</h2>
+        
+        <label for="">{{ trans('dicts.Role')}}</label>
+        <form action="/update-role/{{$user_data->id}}" method="POST">
+            @method('PATCH')
+            @csrf
+
+            <select class="form-select" name="role_id" aria-label="Default select example">
+                <option selected>{{ trans('dicts.Choose the new role')}}</option>
+                @foreach($role_data as $data)
                     <option value="{{$data->id}}">{{$data->role_name}}</option>
-                    @endforeach
-                </select>
-            </form>
+                @endforeach
+            </select>
 
-        @endforeach
-
-        <br>
-        <br>
-
-        <div class="text-center">
-            <a href="#" class="btn btn-warning">Save</a>
-        </div>
+            
+            <br>
+            <br>
+            
+            <div class="text-center">
+                <input type="submit" value="{{ trans('dicts.Save')}}" class="btn btn-warning">
+            </div>
+        </form>
     </div>
 </div>
 

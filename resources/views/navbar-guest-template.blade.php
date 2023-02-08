@@ -14,10 +14,19 @@
     <header>
         <nav class="navbar" style="background-color: #5cb85c">
             <div class="container-fluid">
-              <a href="/" class="navbar-brand h1">Amazing E-Grocery</a>
-              <form class="d-flex">
-                <a href="/register" class="me-2 btn btn-outline-warning" type="submit">Register</a>
-                <a href="/login" class="btn btn-outline-warning" type="submit">Login</a>
+              <a href="/" class="navbar-brand h1">{{ trans('dicts.Amazing E-Grocery')}}</a>
+            <form class="d-flex" method="POST" action="/lang">
+                @csrf
+
+                <a href="/register" class="me-2 btn btn-outline-warning" type="submit">{{ trans('dicts.Register')}}</a>
+
+                <a href="/login" class="me-2 btn btn-outline-warning" type="submit">{{ trans('dicts.Login')}}</a>
+
+                <input class="form-check-input" type="hidden" id="flexSwitchCheckDefault" name="language" value="{{Config::get('app.locale') == 'en' ? 'id' : 'en'}}">
+                <button class="btn btn-outline-warning" type="submit"> 
+                    {{ Config::get('app.lang') == 'en' ? 'Indonesia' : 'English' }}
+                </button>
+
             </form>
             </div>
         </nav>

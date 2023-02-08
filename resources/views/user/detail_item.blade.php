@@ -25,7 +25,7 @@
                     <form action="/add-cart/{{$data->id}}" method="POST">
                         @csrf
     
-                        <button class="btn btn-success" type="submit">Add to Cart</button>
+                        <button class="btn btn-success" type="submit">{{ trans('dicts.Add to Cart')}}</button>
                     </form>
                 </div>
             @endforeach

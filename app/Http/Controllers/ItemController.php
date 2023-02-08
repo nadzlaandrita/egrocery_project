@@ -4,12 +4,15 @@ namespace App\Http\Controllers;
 
 use App\Models\Item;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class ItemController extends Controller
 {
     public function loadItemPage(){
+
+        App::setlocale(session('lang'));
 
         $item_data = DB::table('items')->get();
         $item_data = Item::paginate(10);
@@ -29,6 +32,8 @@ class ItemController extends Controller
     }
 
     public function loadDetailItem($id){
+        App::setlocale(session('lang'));
+        
         $detail_data = DB::table('items')->get()->where('id', $id);
 
         if($detail_data->contains('id', $id)){
