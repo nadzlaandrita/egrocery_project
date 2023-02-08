@@ -120,7 +120,7 @@
 
                 <div class="text-center mt-2">
                     <input type="submit" value="Register" class="btn btn-success">
-                    <p>Alredy Register?
+                    <p>Already Register?
                         <a href="/login">Sign In Here</a>
                     </p>
                 </div>
