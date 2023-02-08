@@ -23,7 +23,7 @@
                 <div class="form-group">
                     <label for="">First Name</label>
                     <input type="text" name="first_name" id="first_name" class="form-control" placeholder="(5-20 letters)" required autofocus>
-                    
+
                     @error('first_name')
                         <div class="alert alert-dismissible alert-danger">
                             {{ $message }}
@@ -35,7 +35,7 @@
                 <div class="form-group">
                     <label for="">Last Name</label>
                     <input type="text" name="last_name" id="last_name" class="form-control" placeholder="(5-20 letters)" required autofocus>
-                    
+
                     @error('last_name')
                         <div class="alert alert-dismissible alert-danger">
                             {{ $message }}
@@ -59,7 +59,7 @@
                     <label for="disabledSelect" class="form-label">Role</label>
                     <select id="disabledSelect" class="form-select" name="role" id="role">
                         @foreach ($role_data as $data)
-                        
+
                             <option value="{{$data->role_name}}">{{$data->role_name}}</option>
                         @endforeach
                     </select>
@@ -75,7 +75,7 @@
                     <label for="selectGender">Gender</label>
 
                     @foreach ($gender_data as $data)
-                        
+
                         <div class="form-check form-check-inline">
                             <input class="form-check-input" type="radio" name="gender" id="gender" value="{{$data->gender_desc}}" checked>
                             <label class="form-check-label" for="">
@@ -110,7 +110,7 @@
                 <div class="form-group">
                     <label for="exampleInputPassword1">Confirm Password</label>
                     <input type="password" name="confirm_password" class="form-control" id="password" placeholder="Password" required>
-                    
+
                     @error('confirm_password')
                         <div class="alert alert-dismissible alert-danger">
                             {{ $message }}
@@ -120,7 +120,7 @@
 
                 <div class="text-center mt-2">
                     <input type="submit" value="Register" class="btn btn-success">
-                    <p>Alredy Register?
+                    <p>Already Register?
                         <a href="/login">Sign In Here</a>
                     </p>
                 </div>
